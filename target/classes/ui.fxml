@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+
+<BorderPane prefHeight="650.0" prefWidth="860.0"
+            xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.hotel.Controller">
+
+    <!-- TOP HEADER -->
+    <top>
+        <HBox alignment="CENTER_LEFT"
+              style="-fx-background-color: #1e40af; -fx-padding: 12 20 12 20;">
+            <Label text="Hotel Management System"
+                   style="-fx-text-fill: white; -fx-font-size: 19px; -fx-font-weight: bold;"/>
+        </HBox>
+    </top>
+
+    <!-- CENTER TABS -->
+    <center>
+        <TabPane tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+
+                <!-- ====== ROOMS TAB ====== -->
+                <Tab text="Rooms">
+                    <content>
+                        <AnchorPane>
+                            <VBox spacing="0"
+                                  AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0"
+                                  AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+                                <HBox VBox.vgrow="ALWAYS">
+
+                                    <!-- LEFT: form -->
+                                    <VBox spacing="14" prefWidth="300" minWidth="260">
+                                        <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+                                        <Label text="Add New Room" styleClass="section-header"/>
+
+                                        <GridPane hgap="12" vgap="12">
+                                            <columnConstraints>
+                                                <ColumnConstraints minWidth="80" prefWidth="90"/>
+                                                <ColumnConstraints hgrow="ALWAYS"/>
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints minHeight="34"/>
+                                                <RowConstraints minHeight="34"/>
+                                                <RowConstraints minHeight="34"/>
+                                            </rowConstraints>
+                                            <Label text="Room No"   GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                                            <Label text="Type"      GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                                            <Label text="Price/Day" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                                            <TextField fx:id="roomNumberField" promptText="e.g. 101"
+                                                       GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                                            <ComboBox fx:id="roomTypeBox" prefWidth="160"
+                                                      GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                                            <TextField fx:id="priceField" promptText="e.g. 1500"
+                                                       GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                                        </GridPane>
+
+                                        <Button text="Add Room" onAction="#addRoom" styleClass="primary-btn"/>
+                                        <Separator/>
+                                        <Label text="Filter View" styleClass="section-header"/>
+                                        <HBox spacing="10">
+                                            <Button text="Show All"       onAction="#showAllRooms"/>
+                                            <Button text="Available Only" onAction="#showAvailableRooms"/>
+                                        </HBox>
+                                    </VBox>
+
+                                    <!-- RIGHT: table -->
+                                    <VBox spacing="10" HBox.hgrow="ALWAYS">
+                                        <padding><Insets top="15" right="15" bottom="15" left="10"/></padding>
+                                        <Label text="Room List" styleClass="section-header"/>
+                                        <TableView fx:id="roomTable" VBox.vgrow="ALWAYS">
+                                            <columns>
+                                                <TableColumn fx:id="roomNoCol" text="Room No"   prefWidth="90"/>
+                                                <TableColumn fx:id="typeCol"   text="Type"      prefWidth="90"/>
+                                                <TableColumn fx:id="priceCol"  text="Price/Day" prefWidth="100"/>
+                                                <TableColumn fx:id="statusCol" text="Status"    prefWidth="110"/>
+                                            </columns>
+                                            <placeholder><Label text="No rooms yet. Add one using the form."/></placeholder>
+                                        </TableView>
+                                    </VBox>
+                                </HBox>
+                            </VBox>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+
+                <!-- ====== CUSTOMERS TAB ====== -->
+                <Tab text="Customers">
+                    <content>
+                        <AnchorPane>
+                            <HBox AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0"
+                                  AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+
+                                <!-- LEFT: form -->
+                                <VBox spacing="14" prefWidth="300" minWidth="260">
+                                    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+                                    <Label text="Add Customer" styleClass="section-header"/>
+
+                                    <GridPane hgap="12" vgap="12">
+                                        <columnConstraints>
+                                            <ColumnConstraints minWidth="80" prefWidth="90"/>
+                                            <ColumnConstraints hgrow="ALWAYS"/>
+                                        </columnConstraints>
+                                        <rowConstraints>
+                                            <RowConstraints minHeight="34"/>
+                                            <RowConstraints minHeight="34"/>
+                                            <RowConstraints minHeight="34"/>
+                                        </rowConstraints>
+                                        <Label text="Name"    GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                                        <Label text="Contact" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                                        <Label text="Room"    GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                                        <TextField fx:id="customerNameField" promptText="Full name"
+                                                   GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                                        <TextField fx:id="contactField" promptText="10-digit number"
+                                                   GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                                        <ComboBox fx:id="customerRoomBox" prefWidth="160"
+                                                  GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                                    </GridPane>
+
+                                    <Button text="Add Customer" onAction="#addCustomer" styleClass="primary-btn"/>
+                                </VBox>
+
+                                <!-- RIGHT: table -->
+                                <VBox spacing="10" HBox.hgrow="ALWAYS">
+                                    <padding><Insets top="15" right="15" bottom="15" left="10"/></padding>
+                                    <Label text="All Customers" styleClass="section-header"/>
+                                    <TableView fx:id="customerTable" VBox.vgrow="ALWAYS">
+                                        <columns>
+                                            <TableColumn fx:id="nameCol"    text="Name"    prefWidth="160"/>
+                                            <TableColumn fx:id="contactCol" text="Contact" prefWidth="130"/>
+                                            <TableColumn fx:id="roomCol"    text="Room"    prefWidth="90"/>
+                                        </columns>
+                                        <placeholder><Label text="No customers added yet."/></placeholder>
+                                    </TableView>
+                                </VBox>
+                            </HBox>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+
+                <!-- ====== BOOKING TAB ====== -->
+                <Tab text="Booking">
+                    <content>
+                        <AnchorPane>
+                            <VBox spacing="20"
+                                  AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0"
+                                  AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+                                <padding><Insets top="25" right="30" bottom="25" left="30"/></padding>
+
+                                <!-- Book section -->
+                                <VBox spacing="14"
+                                      style="-fx-background-color: white; -fx-background-radius: 8;
+                                             -fx-border-color: #e2e8f0; -fx-border-radius: 8; -fx-padding: 16;">
+                                    <Label text="Book a Room" styleClass="section-header"/>
+                                    <GridPane hgap="20" vgap="12">
+                                        <columnConstraints>
+                                            <ColumnConstraints minWidth="120" prefWidth="140"/>
+                                            <ColumnConstraints hgrow="ALWAYS" minWidth="180"/>
+                                        </columnConstraints>
+                                        <rowConstraints>
+                                            <RowConstraints minHeight="36"/>
+                                            <RowConstraints minHeight="36"/>
+                                        </rowConstraints>
+                                        <Label text="Customer"        GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                                        <Label text="Available Room"  GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                                        <ComboBox fx:id="bookingCustomerBox" prefWidth="220"
+                                                  GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                                        <ComboBox fx:id="bookingRoomBox" prefWidth="220"
+                                                  GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                                    </GridPane>
+                                    <Button text="Book Room" onAction="#bookRoom" styleClass="primary-btn"/>
+                                </VBox>
+
+                                <Separator/>
+
+                                <!-- Checkout section -->
+                                <VBox spacing="14"
+                                      style="-fx-background-color: white; -fx-background-radius: 8;
+                                             -fx-border-color: #e2e8f0; -fx-border-radius: 8; -fx-padding: 16;">
+                                    <Label text="Checkout" styleClass="section-header"/>
+                                    <GridPane hgap="20" vgap="12">
+                                        <columnConstraints>
+                                            <ColumnConstraints minWidth="120" prefWidth="140"/>
+                                            <ColumnConstraints hgrow="ALWAYS" minWidth="180"/>
+                                        </columnConstraints>
+                                        <rowConstraints>
+                                            <RowConstraints minHeight="36"/>
+                                            <RowConstraints minHeight="36"/>
+                                        </rowConstraints>
+                                        <Label text="Booked Room"  GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                                        <Label text="Days Stayed"  GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                                        <ComboBox fx:id="checkoutRoomBox" prefWidth="220"
+                                                  GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                                        <TextField fx:id="daysField" promptText="e.g. 3"
+                                                   GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                                    </GridPane>
+                                    <Button text="Checkout" onAction="#checkout" styleClass="danger-btn"/>
+                                </VBox>
+
+                            </VBox>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+
+                <!-- ====== BILLING TAB ====== -->
+                <Tab text="Billing">
+                    <content>
+                        <AnchorPane>
+                            <VBox spacing="12"
+                                  AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0"
+                                  AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+                                <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+                                <Label text="Billing History" styleClass="section-header"/>
+                                <TableView fx:id="billingTable" VBox.vgrow="ALWAYS">
+                                    <columns>
+                                        <TableColumn fx:id="billNameCol"  text="Customer"     prefWidth="150"/>
+                                        <TableColumn fx:id="billRoomCol"  text="Room"         prefWidth="70"/>
+                                        <TableColumn fx:id="billDaysCol"  text="Days"         prefWidth="60"/>
+                                        <TableColumn fx:id="billPriceCol" text="Rate/Day (Rs)" prefWidth="110"/>
+                                        <TableColumn fx:id="billTotalCol" text="Total (Rs)"   prefWidth="100"/>
+                                        <TableColumn fx:id="billDateCol"  text="Date"         prefWidth="110"/>
+                                    </columns>
+                                    <placeholder><Label text="No bills yet. Complete a checkout to generate records."/></placeholder>
+                                </TableView>
+                                <HBox alignment="CENTER_RIGHT">
+                                    <Button text="Clear History" onAction="#clearBills"/>
+                                </HBox>
+                            </VBox>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+
+            </tabs>
+        </TabPane>
+    </center>
+
+    <!-- BOTTOM STATUS BAR — visible on ALL tabs -->
+    <bottom>
+        <HBox style="-fx-background-color: #1e293b; -fx-padding: 7 15;">
+            <Label fx:id="statusLabel" text="  Status: Ready"
+                   style="-fx-text-fill: #94a3b8; -fx-font-size: 12px;"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

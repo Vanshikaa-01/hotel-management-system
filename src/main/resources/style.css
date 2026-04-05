@@ -1,0 +1,192 @@
+
+
+/* ── Root / Base ── */
+.root {
+    -fx-font-family: "Segoe UI", "Arial", sans-serif;
+    -fx-font-size: 13px;
+    -fx-background-color: #f1f5f9;
+}
+
+/* ── Labels ── */
+.label {
+    -fx-text-fill: #1e293b;
+}
+
+.section-header {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1e40af;
+}
+
+/* ── Status bar label (always at bottom) ── */
+#statusLabel {
+    -fx-text-fill: #94a3b8;
+    -fx-font-size: 12px;
+}
+
+/* ── Buttons (default) ── */
+.button {
+    -fx-background-color: #475569;
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+    -fx-background-radius: 6px;
+    -fx-padding: 7 16;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: #334155;
+}
+
+/* ── Primary button (Add / Book) ── */
+.primary-btn {
+    -fx-background-color: #2563eb;
+    -fx-text-fill: white;
+    -fx-background-radius: 6px;
+    -fx-padding: 8 20;
+    -fx-cursor: hand;
+}
+
+.primary-btn:hover {
+    -fx-background-color: #1d4ed8;
+}
+
+.primary-btn:pressed {
+    -fx-background-color: #1e40af;
+}
+
+/* ── Danger button (Checkout) ── */
+.danger-btn {
+    -fx-background-color: #dc2626;
+    -fx-text-fill: white;
+    -fx-background-radius: 6px;
+    -fx-padding: 8 20;
+    -fx-cursor: hand;
+}
+
+.danger-btn:hover {
+    -fx-background-color: #b91c1c;
+}
+
+.danger-btn:pressed {
+    -fx-background-color: #991b1b;
+}
+
+/* ── Tab pane ── */
+.tab-pane {
+    -fx-background-color: #f1f5f9;
+    -fx-tab-min-width: 90px;
+}
+
+.tab-pane .tab-header-area {
+    -fx-background-color: #1e293b;
+    -fx-padding: 4 0 0 10;
+}
+
+.tab-pane .tab {
+    -fx-background-color: #334155;
+    -fx-background-radius: 6px 6px 0 0;
+    -fx-padding: 7 14;
+}
+
+.tab-pane .tab .tab-label {
+    -fx-text-fill: #94a3b8;
+    -fx-font-size: 13px;
+}
+
+.tab-pane .tab:selected {
+    -fx-background-color: #f1f5f9;
+}
+
+.tab-pane .tab:selected .tab-label {
+    -fx-text-fill: #1e40af;
+    -fx-font-weight: bold;
+}
+
+/* ── TableView ── */
+.table-view {
+    -fx-background-color: white;
+    -fx-border-color: #e2e8f0;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+}
+
+.table-view .column-header {
+    -fx-background-color: #1e40af;
+    -fx-padding: 8 6;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #1e40af;
+}
+
+.table-row-cell {
+    -fx-cell-size: 34px;
+    -fx-background-color: white;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #f8fafc;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #dbeafe;
+}
+
+.table-row-cell:selected .text {
+    -fx-fill: #1e3a8a;
+}
+
+/* ── TextFields ── */
+.text-field {
+    -fx-background-color: white;
+    -fx-border-color: #cbd5e1;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-padding: 7 10;
+    -fx-font-size: 13px;
+}
+
+.text-field:focused {
+    -fx-border-color: #2563eb;
+    -fx-border-width: 1.5px;
+}
+
+/* ── ComboBox ── */
+.combo-box {
+    -fx-background-color: white;
+    -fx-border-color: #cbd5e1;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+}
+
+.combo-box:focused {
+    -fx-border-color: #2563eb;
+}
+
+.combo-box .list-cell {
+    -fx-text-fill: #1e293b;
+    -fx-padding: 4 8;
+}
+
+/* ── Separator ── */
+.separator {
+    -fx-padding: 4 0;
+}
+
+/* ── SplitPane ── */
+.split-pane {
+    -fx-background-color: #f1f5f9;
+    -fx-padding: 0;
+}
+
+.split-pane-divider {
+    -fx-background-color: #e2e8f0;
+    -fx-padding: 0 1;
+}

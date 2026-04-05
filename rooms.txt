@@ -1,0 +1,8 @@
+101,SINGLE,1500.0,Available
+102,DOUBLE,2500.0,Available
+103,DELUXE,4000.0,Available
+104,SINGLE,1500.0,Available
+105,DOUBLE,2500.0,Available
+106,DELUXE,4000.0,Available
+107,DOUBLE,2500.0,Available
+108,DELUXE,4000.0,Available
