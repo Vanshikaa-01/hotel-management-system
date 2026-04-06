@@ -151,16 +151,12 @@ private void refreshTable() {
     roomTable.setItems(filteredList);
 }
 
-    // ─────────────────────────────────────────────
     //  STATUS HELPER
-    // ─────────────────────────────────────────────
     private void setStatus(String msg) {
         statusLabel.setText("  " + msg);
     }
 
-    // ─────────────────────────────────────────────
     //  ROOM ACTIONS
-    // ─────────────────────────────────────────────
     @FXML
     private void addRoom() {
         String roomNo    = roomNumberField.getText().trim();
@@ -220,9 +216,7 @@ private void refreshTable() {
         setStatus("Showing " + count + " available room(s).");
     }
 
-    // ─────────────────────────────────────────────
     //  CUSTOMER ACTIONS
-    // ─────────────────────────────────────────────
     @FXML
     private void addCustomer() {
         String name    = customerNameField.getText().trim();
@@ -250,9 +244,7 @@ private void refreshTable() {
         customerRoomBox.setValue(null);
     }
 
-    // ─────────────────────────────────────────────
     //  BOOKING ACTIONS
-    // ─────────────────────────────────────────────
    @FXML
     private void bookRoom() {
         String customerEntry = bookingCustomerBox.getValue();
@@ -363,9 +355,7 @@ new Thread(new RoomServiceTask("Food Delivery", roomNo)).start();
                 + String.format("%.2f", billAmount) + " (" + days + " day(s))");
     }
 
-    // ─────────────────────────────────────────────
     //  BILLING ACTIONS
-    // ─────────────────────────────────────────────
     @FXML
     private void clearBills() {
         if (billList.isEmpty()) {
@@ -377,9 +367,7 @@ new Thread(new RoomServiceTask("Food Delivery", roomNo)).start();
         setStatus("Billing history cleared.");
     }
 
-    // ─────────────────────────────────────────────
     //  FILE: ROOMS
-    // ─────────────────────────────────────────────
     private void saveRoomsToFile() {
         try (BufferedWriter w = new BufferedWriter(new FileWriter(ROOMS_FILE))) {
             for (Room r : roomList) {
@@ -412,9 +400,7 @@ new Thread(new RoomServiceTask("Food Delivery", roomNo)).start();
         }
     }
 
-    // ─────────────────────────────────────────────
     //  FILE: CUSTOMERS
-    // ─────────────────────────────────────────────
     private void saveCustomersToFile() {
         try (BufferedWriter w = new BufferedWriter(new FileWriter(CUSTOMERS_FILE))) {
             for (Customer c : customerList) {
@@ -442,9 +428,7 @@ new Thread(new RoomServiceTask("Food Delivery", roomNo)).start();
         }
     }
 
-    // ─────────────────────────────────────────────
     //  FILE: BILLS
-    // ─────────────────────────────────────────────
     private void saveBillsToFile() {
         try (BufferedWriter w = new BufferedWriter(new FileWriter(BILLS_FILE))) {
             for (Bill b : billList) {
